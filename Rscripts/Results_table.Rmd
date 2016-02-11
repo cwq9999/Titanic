@@ -1,0 +1,40 @@
+---
+title: "Titanic Kaggle Results"
+author: "Casey Quinn"
+date: "January 29, 2016"
+output: rmarkdown::tufte_handout
+---
+
+
+# Tables
+
+
+
+```{r, echo=FALSE, results='asis'}
+rm(list=ls())
+library(xtable)
+options(xtable.comment = FALSE)
+options(xtable.booktabs = TRUE)
+
+description <- c("fare_knn1","datacamp_tree_new","datacamp_tree_org", "log_sexfare", "sex_knn1", "lda_sexfare", "rand_forest", "bagged_rand_forest", "Class*Tree_Jamesbook", "Brookes_NB_Pclass", "NB_Pc_Sex_Age_Fare", "svm_PclasSexsibPar", "svmtunedPclasSexsibPar")
+train_accuracy <- c(0.7761001, 0.8395062 , 0.8395062, 0.7643323, 0.7668728, 0.7652430, 0.9124579, 0.9842873, 0.6161616, 0.6790123, 0.7766554, 0.8103255, 0.8069585)
+score <- c(0.66029,0.80383,0.78469, 0.76077, 0.76555, 0.76077, 0.79904, 0.73684, 0.77990, 0.65550, 0.72727, 0.77033, 0.77512)
+
+results_df <- data.frame(description, train_accuracy, score)
+xtable(results_df, digits=5, caption = "Titanic Results")
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
